@@ -68,4 +68,4 @@ Special thanks to the contributors and the open-source community for their valua
 
 ## Contact
 
-If you have any questions or need further assistance, please feel free to contact the project maintainers at [email@example.com].
+If you have any questions or need further assistance, please feel free to contact the project maintainers at [rohitwebdev007@gmail.com].
