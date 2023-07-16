@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+import Spinner from "../../UI/Spinner";
+import CabinRow from "./CabinRow";
+import { getCabinHook } from "./useHooks";
+
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
 
@@ -23,3 +27,32 @@ const TableHeader = styled.header`
   color: var(--color-grey-600);
   padding: 1.6rem 2.4rem;
 `;
+
+const CabinTable = () => {
+  const {
+    isLoading,
+    cabins,
+    error,
+  } = getCabinHook() 
+
+
+  if (isLoading) return <Spinner />;
+  if(error) alert("Unable to fetch data")
+  return (
+    <Table role="table">
+      <TableHeader role="row">
+        <div></div>
+        <div>Cabin</div>
+        <div>Capacity</div>
+        <div>Price</div>
+        <div>Discount</div>
+        <div></div>
+      </TableHeader>
+      {cabins?.map((cabin)=>{
+        return <CabinRow key={cabin.id} {...cabin}/>
+      })}
+    </Table>
+  );
+};
+
+export default CabinTable;
